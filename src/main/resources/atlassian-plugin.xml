@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<atlassian-plugin key="${atlassian.plugin.key}" name="${project.name}" plugins-version="2">
+  <plugin-info>
+    <description>${project.description}</description>
+    <version>${project.version}</version>
+    <vendor name="${project.organization.name}" url="${project.organization.url}"/>
+    <param name="plugin-icon">images/pluginIcon.png</param>
+    <param name="plugin-logo">images/pluginLogo.png</param>
+  </plugin-info>
+  <!-- add our i18n resource -->
+  <resource type="i18n" name="i18n" location="restPlugin"/>
+  <!-- add our web resources -->
+  <web-resource key="restPlugin-resources" name="restPlugin Web Resources">
+    <dependency>com.atlassian.auiplugin:ajs</dependency>
+    <resource type="download" name="restPlugin.css" location="/css/restPlugin.css"/>
+    <resource type="download" name="restPlugin.js" location="/js/restPlugin.js"/>
+    <resource type="download" name="images/" location="/images"/>
+    <context>restPlugin</context>
+  </web-resource>
+  <rest name="Hello World Resource" i18n-name-key="hello-world-resource.name" key="hello-world-resource" path="/hello" version="1.0">
+    <description key="hello-world-resource.description">The Hello World Resource Plugin</description>
+    <package>com.atlassian.tutorial.rest.hello</package>
+  </rest>
+  <rest name="Goodbye Rest Resource" i18n-name-key="goodbye-rest-resource.name" key="goodbye-rest-resource" path="/goodbye" version="1.0">
+    <description key="goodbye-rest-resource.description">The Goodbye Rest Resource Plugin</description>
+    <package>com.atlassian.tutorial.rest.goodbye</package>
+  </rest>
+</atlassian-plugin>
